@@ -1,6 +1,6 @@
 # postcss-pxrem-function
 
-[PostCSS] plugin to use rem() function to convert pixels to rem.
+[PostCSS] plugin to use pxRem() function to convert pixels to rem.
 
 [PostCSS]: https://github.com/postcss/postcss
 
@@ -42,7 +42,7 @@ module.exports = {
 }
 ```
 
-**Step 4:** Add configuation for divider:
+**Step 4:** Add configuration for pixels divider:
 
 ```diff
 module.exports = {
