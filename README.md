@@ -42,4 +42,16 @@ module.exports = {
 }
 ```
 
+**Step 4:** Add configuation for divider:
+
+```diff
+module.exports = {
+  plugins: [
+    require('postcss-pxrem-function')({
+      divider: 10, // 16(px) / 10 => 1.6rem. Default is 16
+    })
+  ]
+}
+```
+
 [official docs]: https://github.com/postcss/postcss#usage
