@@ -1,12 +1,14 @@
 {
   "name": "postcss-pxrem-function",
-  "version": "0.0.0",
+  "version": "0.0.1",
   "description": "PostCSS plugin to use pxRem() function to convert pixels into rem.",
   "keywords": [
     "postcss",
     "css",
     "postcss-plugin",
-    "postcss-rem-function"
+    "postcss-pxrem-function",
+    "scss",
+    "pixel-to-rem"
   ],
   "scripts": {
     "test": "jest --coverage && eslint ."
