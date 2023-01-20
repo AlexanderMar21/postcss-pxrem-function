@@ -6,13 +6,13 @@
 
 ```css
 .foo {
-  font-size: remPx(16px); // 1rem
+  font-size: remPx(16px); // font-size: 1rem;
 }
 ```
 
 ```css
 .foo {
-  padding: remPx(16px) remPx(20px); // 1rem
+  padding: remPx(16px) remPx(20px); // padding: 1rem 1.25rem;
 }
 ```
 

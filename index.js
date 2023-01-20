@@ -1,36 +1,27 @@
 /**
  * @type {import('postcss').PluginCreator}
  */
-module.exports = (opts = {}) => {
+module.exports = (opts = { }) => {
   // Work with options here
+
+  const DEFAULT_DIVIDER = 16;
+
+  const validateDivider = (divider) => {
+    if (typeof divider !== 'number' || divider <= 0) return DEFAULT_DIVIDER;
+    return divider;
+  }
 
   return {
     postcssPlugin: 'postcss-pxrem-function',
 
-    Declaration (decl) {
-      const rgx = new RegExp(/pxRem\((\d+\.?\d*)px\)/, 'g');
-      if (!rgx.test(decl.value)) return;
+    Declaration(decl) {
+      const rgxTwo = new RegExp(/pxRem\((\d+\.?\d*)px\)/, 'g');
+      if (!rgxTwo.test(decl.value)) return;
       const declValue = decl.value;
-      const cssString = declValue.replace(rgx, (match, n) => (n / 16) + 'rem');
-      console.log(cssString);
-      if (cssString) {
-        decl.value = cssString.toString()
-      }
+      const _divider = validateDivider(opts.divider);
+      const cssString = declValue.replace(rgxTwo, (match, n) => (n / _divider) + 'rem');
+      decl.value = cssString.toString()
     }
-
-    /*
-    Declaration (decl, postcss) {
-      // The faster way to find Declaration node
-    }
-    */
-
-    /*
-    Declaration: {
-      color: (decl, postcss) {
-        // The fastest way find Declaration node if you know property name
-      }
-    }
-    */
   }
 }
 
