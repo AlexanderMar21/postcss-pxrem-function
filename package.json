@@ -13,7 +13,7 @@
   },
   "author": "AlexanderMar21 <54232340+AlexanderMar21@users.noreply.github.com>",
   "license": "MIT",
-  "repository": "AlexanderMar21/postcss-rem-function",
+  "repository": "https://github.com/AlexanderMar21/postcss-pxrem-function",
   "engines": {
     "node": ">=12.0.0"
   },
