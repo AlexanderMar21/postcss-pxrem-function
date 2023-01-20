@@ -14,9 +14,14 @@ module.exports = (opts = { }) => {
   return {
     postcssPlugin: 'postcss-pxrem-function',
 
-    Declaration(decl) {
+    Declaration(decl, { result }) {
+      const rgxOne = new RegExp(/pxRem\(([a-zA-Z0-9_.-]*)\)/, 'g')
       const rgxTwo = new RegExp(/pxRem\((\d+\.?\d*)px\)/, 'g');
-      if (!rgxTwo.test(decl.value)) return;
+      if (!rgxOne.test(decl.value)) return;
+      if (!rgxTwo.test(decl.value)) {
+        result.warn(`An error found in declaration: ${decl.toString()}`);
+        return;
+      }
       const declValue = decl.value;
       const _divider = validateDivider(opts.divider);
       const cssString = declValue.replace(rgxTwo, (match, n) => (n / _divider) + 'rem');
