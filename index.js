@@ -5,12 +5,18 @@ module.exports = (opts = {}) => {
   // Work with options here
 
   return {
-    postcssPlugin: 'postcss-rem-function',
-    /*
-    Root (root, postcss) {
-      // Transform CSS AST here
+    postcssPlugin: 'postcss-pxrem-function',
+
+    Declaration (decl) {
+      const rgx = new RegExp(/pxRem\((\d+\.?\d*)px\)/, 'g');
+      if (!rgx.test(decl.value)) return;
+      const declValue = decl.value;
+      const cssString = declValue.replace(rgx, (match, n) => (n / 16) + 'rem');
+      console.log(cssString);
+      if (cssString) {
+        decl.value = cssString.toString()
+      }
     }
-    */
 
     /*
     Declaration (decl, postcss) {

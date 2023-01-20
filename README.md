@@ -1,4 +1,4 @@
-# postcss-rem-function
+# postcss-pxrem-function
 
 [PostCSS] plugin to use rem() function to convert pixels to rem.
 
@@ -6,13 +6,13 @@
 
 ```css
 .foo {
-  /* Input example */
+  font-size: remPx(16px); // 1rem
 }
 ```
 
 ```css
 .foo {
-  /* Output example */
+  padding: remPx(16px) remPx(20px); // 1rem
 }
 ```
 
@@ -21,7 +21,7 @@
 **Step 1:** Install plugin:
 
 ```sh
-npm install --save-dev postcss postcss-rem-function
+npm install --save-dev postcss postcss-pxrem-function
 ```
 
 **Step 2:** Check you project for existed PostCSS config: `postcss.config.js`
@@ -36,7 +36,7 @@ and set this plugin in settings.
 ```diff
 module.exports = {
   plugins: [
-+   require('postcss-rem-function'),
++   require('postcss-pxrem-function'),
     require('autoprefixer')
   ]
 }
