@@ -11,15 +11,16 @@ module.exports = (opts = { }) => {
     return divider;
   }
 
+  const rgxOne = new RegExp(/pxRem\(([a-zA-Z0-9_.-]*)\)/, 'g')
+  const rgxTwo = new RegExp(/pxRem\((\d+\.?\d*)px\)/, 'g');
+
   return {
     postcssPlugin: 'postcss-pxrem-function',
 
     Declaration(decl, { result }) {
-      const rgxOne = new RegExp(/pxRem\(([a-zA-Z0-9_.-]*)\)/, 'g')
-      const rgxTwo = new RegExp(/pxRem\((\d+\.?\d*)px\)/, 'g');
       if (!rgxOne.test(decl.value)) return;
       if (!rgxTwo.test(decl.value)) {
-        result.warn(`An error found in declaration: ${decl.toString()}`);
+        result.warn(`An invalid value found when using pxRem function in declaration: ${decl.toString()}`);
         return;
       }
       const declValue = decl.value;

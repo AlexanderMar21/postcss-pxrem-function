@@ -1,6 +1,6 @@
 {
   "name": "postcss-pxrem-function",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "PostCSS plugin to use pxRem() function to convert pixels into rem.",
   "keywords": [
     "postcss",
