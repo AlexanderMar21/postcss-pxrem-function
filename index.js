@@ -11,8 +11,8 @@ module.exports = (opts = { }) => {
     return divider;
   }
 
-  const rgxOne = new RegExp(/pxRem\(([a-zA-Z0-9_.-]*)\)/, 'g')
-  const rgxTwo = new RegExp(/pxRem\((\d+\.?\d*)px\)/, 'g');
+  const rgxOne = new RegExp(/(pxRem|pxrem)\(([a-zA-Z0-9_.-]*)\)/, 'g')
+  const rgxTwo = new RegExp(/(pxRem|pxrem)\((\d+\.?\d*)px\)/, 'g');
 
   return {
     postcssPlugin: 'postcss-pxrem-function',
@@ -25,7 +25,7 @@ module.exports = (opts = { }) => {
       }
       const declValue = decl.value;
       const _divider = validateDivider(opts.divider);
-      const cssString = declValue.replace(rgxTwo, (match, n) => (n / _divider) + 'rem');
+      const cssString = declValue.replace(rgxTwo, (match, _, n) => (n / _divider) + 'rem');
       decl.value = cssString.toString()
     }
   }

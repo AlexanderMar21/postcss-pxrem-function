@@ -1,20 +1,24 @@
 # postcss-pxrem-function
 
-[PostCSS] plugin to use pxRem() function to convert pixels to rem.
+[PostCSS] plugin to use pxRem() or pxrem() function to convert pixels to rem.
 
 [PostCSS]: https://github.com/postcss/postcss
 
 ```css
 .foo {
   font-size: pxRem(16px); // font-size: 1rem;
+  border-radious: pxrem(16px); // border-radious: 1rem;
 }
 ```
 
 ```css
 .foo {
-  padding: pxRem(16px) pxRem(20px); // padding: 1rem 1.25rem;
+  padding: pxRem(16px) pxrem(20px); // padding: 1rem 1.25rem;
 }
 ```
+## Migration from 0.0.x to 0.1.x
+In version ```0.1.x``` the ```pxRem()``` is can also be used as ```pxrem()``` to solve stylelint compatibility. The changes are backwards compatible.
+
 
 ## Usage
 
